@@ -5,7 +5,7 @@
 ### Objetivo general
 
 * Evaluar el impacto de distintas políticas de planificación de la CPU en el rendimiento de un sistema operativo mediante simulación.
-* 
+  
 ### Objetivos Especificos
 
 * Analizar los mecanismos y características de las políticas de planificación FCFS, SJF, STCF, Round Robin y Prioridades (MLFQ).
