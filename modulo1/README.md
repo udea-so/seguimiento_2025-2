@@ -1,6 +1,24 @@
-## SISTEMAS OPERATIVOS Y LABORATORIO - MÓDULO 1: VIRTUALIZACIÓN DE LA CPU
+## MÓDULO 1 - VIRTUALIZACIÓN DE LA CPU
 
-## Parte 1: Políticas de planificación
+## Objetivos
+
+### Objetivo general
+
+* Evaluar el impacto de distintas políticas de planificación de la CPU en el rendimiento de un sistema operativo mediante simulación.
+* 
+### Objetivos Especificos
+
+* Analizar los mecanismos y características de las políticas de planificación FCFS, SJF, STCF, Round Robin y Prioridades (MLFQ).
+* Implementar estas políticas en un simulador para procesar una serie de tareas predefinidas.
+* Medir y comparar el rendimiento de cada política utilizando métricas como el tiempo de retorno promedio y el tiempo de espera promedio para determinar la más eficiente en cada escenario.
+
+## Instrucciones de entrega
+
+Suba un documento pdf en la plataforma con el procedimiento a mano y las capturas de la simulaciones realizadas. No olvide anotar las conclusiones.
+
+## Ejercicios
+
+### Parte 1: Políticas de planificación
 
 1. Considere que cinco procesos llegan a la cola ready en el orden P1, P2, P3, P4 y P5 en el instante de tiempo cero. Asumiendo que el intervalo de cambio de contexto es despreciable (cero) y que las ráfagas de CPU (en microsegundos) para los procesos se muestran en la siguiente tabla:
 
@@ -99,7 +117,7 @@
      | **P5** |  |  |  |  |  |
      |  |  |  | **Promedio** |  |  |
 
-## Parte 2: MLFQ
+### Parte 2: MLFQ
 
 6. La siguiente tabla muestra la información relacionada con 4 procesos que serán ejecutados por el planificador:
 
@@ -151,7 +169,7 @@
   **Simulación**
 
   * Empleando el simulador [mlfq.py](https://github.com/remzi-arpacidusseau/ostep-homework/blob/master/cpu-sched-mlfq/mlfq.py), realizar para este problema la simulación pasando los parámetros de acuerdo al enunciado. Para conocer cómo pasar estos usar este simulador consulte el siguiente [link](https://github.com/remzi-arpacidusseau/ostep-homework/tree/master/cpu-sched-mlfq). No olvide comparar los resultados y sacar conclusiones.
-  
+
 ## Referencias
 
 * [http://cpuburst.com/](http://cpuburst.com/)  
