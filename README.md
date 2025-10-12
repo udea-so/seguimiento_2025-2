@@ -3,3 +3,5 @@
 A continuación se muestra una lista de actividades de seguimiento por modulos para el semestre 2025/2.
 * **Modulo 1 - Virtualización de CPU**
   * Politicas de planificacion [[link]](./modulo1/README.md)
+* **Modulo 2 - Virtualización de Memoria**
+  * Traducción de direcciones [[link]](./modulo2/README.md)
