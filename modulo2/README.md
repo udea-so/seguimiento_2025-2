@@ -1,8 +1,26 @@
-## SISTEMAS OPERATIVOS Y LABORATORIO
 
-## MÓDULO 2: VIRTUALIZACIÓN DE MEMORIA
+# MÓDULO 2: VIRTUALIZACIÓN DE MEMORIA
 
-## BASE & BOUND
+## Objetivos
+
+### Objetivo general
+
+* Analizar los principios fundamentales y las técnicas avanzadas de la virtualización de memoria, demostrando su impacto en el rendimiento y la gestión de recursos en sistemas operativos.
+  
+### Objetivos Especificos
+
+* Explicar el mecanismo de reubicación dinámica mediante registros base y límite, resolviendo problemas de traducción de direcciones y protección de memoria.
+* Describir el proceso de traducción de direcciones en un sistema de paginación, identificando sus componentes clave (VPN, offset, tabla de páginas y PFN).
+* Evaluar el impacto de la TLB en el rendimiento de la traducción de direcciones, diferenciando entre aciertos (hits) y fallos (misses) para calcular direcciones físicas.
+* Comparar el rendimiento de las políticas de reemplazo de páginas (ej. FIFO, LRU, Óptimo) mediante el cálculo del número de fallos de página para una secuencia de referencia dada.
+
+## Instrucciones de entrega
+
+Suba un documento pdf en la plataforma con el procedimiento a mano y las capturas de la simulaciones realizadas.
+
+## Ejercicios 
+
+### 1. Dynamic Realloc (base & bound)
 
 1. Dada la configuración de memoria mostrada en la siguiente figura: 
 
@@ -14,7 +32,7 @@
    3. Suponga que llega un nuevo proceso 4 solicitando un bloque de 100K. ¿Es posible acomodar este proceso en la memoria física? Justifique su respuesta usando Dynamic Reallocation.  
    4. Suponga que en cada proceso se accede a la dirección virtual 10K. Determine (en caso de que la dirección sea válida) la correspondiente dirección física asociada para cada caso.
 
-## Paginación
+### 2. Paginación
 
 2. Suponga que tiene un pequeño espacio de direcciones virtuales de tamaño 64 KB. Además, suponga que es un sistema que utiliza paginación y que cada página tiene un tamaño de 8 KB.  
    1. ¿Cuántos bits hay en una dirección virtual en este sistema?  
@@ -35,13 +53,13 @@
 
 3. Recuerde que el sistema operativo (SO) realiza un seguimiento de la tabla de páginas lineal de un proceso al recordar su dirección base, la cual, para este problema, se asumirá que es la dirección donde se encuentra la tabla de páginas en la memoria física del kernel. Dada la dirección de inicio de la tabla de páginas (**`pt_base`**) y un **`VPN`** que se desea traducir a un **`PFN`** (número de página física), escriba una función que calcule y retorne un puntero a la entrada de la tabla de páginas (**`pte`**) correcta para este **`VPN`**:  
    
-  ```c
-  struct pte *p find_pte(void *pt_base, int VPN) {   
-    struct pte *p = ________ // Escriba aqui el código   return p; 
-  } 
-  ```
+   ```c
+   struct pte *p find_pte(void *pt_base, int VPN) {   
+     struct pte *p = ________ // Escriba aqui el código   return p; 
+   } 
+   ```
 
-## TLB
+### 3. TLB
 
 1. Asuma un espacio de direcciones virtuales de 32 bits y que la traducción de direcciones se hace mediante paginación de tal manera que la dirección virtual se divide en un número de página virtual (**VPN**) de 20 bits y un desplazamiento (**offset**) de 12 bits.
 
@@ -54,9 +72,9 @@
    | `00010` | `F000A` | `00` |
    | `010FF` | `00ABC` | `01` |
 
-**Nota**: todos estos números están en hexadecimal. Por lo tanto, cada uno representa cuatro bits (p. ej., el hexadecimal `F` es `1111`, el hexadecimal `A` es `1010`, el hexadecimal `7` es `0111`, y así sucesivamente). Por esta razón, el `VPN` y el `PFN` de 20 bits se representan con cinco números hexadecimales cada uno.
+   **Nota**: todos estos números están en hexadecimal. Por lo tanto, cada uno representa cuatro bits (p. ej., el hexadecimal `F` es `1111`, el hexadecimal `A` es `1010`, el hexadecimal `7` es `0111`, y así sucesivamente). Por esta razón, el `VPN` y el `PFN` de 20 bits se representan con cinco números hexadecimales cada uno.
 
-Ahora, para cada una de las siguientes direcciones virtuales, indique si se trata de un acierto de TLB (**TLB hit**) o un fallo de TLB (**TLB miss**). **IMPORTANTE:** Si es un acierto, proporcione la dirección física resultante (en hexadecimal).
+   Ahora, para cada una de las siguientes direcciones virtuales, indique si se trata de un acierto de TLB (**TLB hit**) o un fallo de TLB (**TLB miss**). **IMPORTANTE:** Si es un acierto, proporcione la dirección física resultante (en hexadecimal).
    - El PID `00` genera la dirección virtual: `0x00000000`
    - El PID `01` genera la dirección virtual: `0x00000000`  
    - El PID `00` genera la dirección virtual: `0xFF00FFAA`  
@@ -69,7 +87,7 @@ Ahora, para cada una de las siguientes direcciones virtuales, indique si se trat
    - El PID 00 genera la dirección virtual binaria `00000001000011111111010100001111`  
    - El PID `02` genera la dirección virtual: `0x00000000`
 
-## Políticas de reemplazo
+### 4. Políticas de reemplazo
 
 1. Suponga que tiene la siguiente secuencia de referencias a páginas: 
 
